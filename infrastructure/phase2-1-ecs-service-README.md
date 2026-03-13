@@ -19,15 +19,15 @@
 
 ### 1. ECR 로그인
 ```bash
-aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin ACCOUNT_ID.dkr.ecr.ap-northeast-2.amazonaws.com
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
 ```
 
 ### 2. 이미지 빌드 및 푸시 (AMD64 플랫폼)
 ```bash
 # 프로젝트 루트에서 실행
 docker build --platform linux/amd64 -t ci-cd-demo-app .
-docker tag ci-cd-demo-app:latest ACCOUNT_ID.dkr.ecr.ap-northeast-2.amazonaws.com/ci-cd-demo-app:latest
-docker push 277707126943.dkr.ecr.ap-northeast-2.amazonaws.com/ci-cd-demo-app:latest
+docker tag ci-cd-demo-app:latest ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/ci-cd-demo-app:latest
+docker push 277707126943.dkr.ecr.us-east-1.amazonaws.com/ci-cd-demo-app:latest
 ```
 
 **ACCOUNT_ID를 실제 AWS 계정 ID로 교체하세요.**
