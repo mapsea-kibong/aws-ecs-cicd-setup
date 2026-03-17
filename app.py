@@ -7,7 +7,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello(): 
-    return render_template("index.html", message=f"CloudWatch alarm test new - Task: {hostname}")
+    hostname = socket.gethostname()[:12]  
+    return render_template("index.html", message=f"hello - Task: {hostname}")
 
 @app.route("/health")
 def health():
