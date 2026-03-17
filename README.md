@@ -346,6 +346,25 @@ aws iam put-role-policy \
           "codestar-connections:UseConnection"
         ],
         "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "ecs:RegisterTaskDefinition",
+          "ecs:UpdateService",
+          "ecs:DescribeServices"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "iam:PassRole"
+        ],
+        "Resource": [
+          "arn:aws:iam::'$ACCOUNT_ID':role/ci-cd-demo-ecs-task-execution-role",
+          "arn:aws:iam::'$ACCOUNT_ID':role/ci-cd-demo-ecs-task-role"
+        ]
       }
     ]
   }'
