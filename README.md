@@ -132,6 +132,22 @@ ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 echo "Account ID: $ACCOUNT_ID"
 ```
 
+### ECS Service-Linked Role 확인
+
+> ECS를 **처음 사용하는 계정**에서는 Service-Linked Role이 없어 Phase 1에서 ECS 클러스터 생성이 실패할 수 있습니다. 아래 두 가지 방법 중 하나를 수행하세요.
+
+**방법 1: CLI로 생성**
+```bash
+aws iam create-service-linked-role --aws-service-name ecs.amazonaws.com 2>/dev/null || true
+```
+
+**방법 2: ECS 콘솔 접속**
+```
+AWS Console → ECS 서비스 페이지에 한 번 접속하면 자동으로 생성됩니다.
+```
+
+> 이미 ECS를 사용한 적 있는 계정이라면 이 단계를 건너뛰어도 됩니다.
+
 ### GitHub Personal Access Token (PAT) 생성
 
 CloudShell에서 `git push` 및 CodeBuild GitHub 인증에 PAT이 필요합니다.
