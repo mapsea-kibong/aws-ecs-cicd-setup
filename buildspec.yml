@@ -26,4 +26,3 @@ phases:
 artifacts:
   files:
     - imagedefinitions.json
-"ECS deployment triggered. Blue/Green proceeds in background."
