@@ -11,7 +11,7 @@ def hello():
 
 @app.route("/health")
 def health():
-    return "SUCCESS", 200
+    return "FAIL", 500
 
 @app.route("/error")
 def error():
